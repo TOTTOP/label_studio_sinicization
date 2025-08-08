@@ -1,0 +1,23 @@
+title: 内容审核
+type: community
+group: 自然语言处理
+image: /static/templates/content-moderation.png
+details: <h1>Content moderation</h1>
+config: |
+  <View>
+    <Text name="text" value="$text"/>
+
+    <Choices name="content_moderation" toName="text" choice="multiple" showInline="false">
+      <Choice value="Toxic" background="red"/>
+      <Choice value="Severely Toxic" background="brown"/>
+      <Choice value="Obscene" background="green"/>
+      <Choice value="Threat" background="blue"/>
+      <Choice value="Insult" background="orange"/>
+      <Choice value="Hate" background="grey"/>
+    </Choices>
+
+    <View style="margin-top: 2em; box-shadow: 2px 12px 15px #999; padding: 30px; border-radius: 5px; background-color: #F0FFF0;">
+      <Header value="Please provide additional comments"/>
+      <TextArea name="comments" toName="text" required="false"/>
+    </View>
+  </View>

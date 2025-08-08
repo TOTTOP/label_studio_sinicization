@@ -1,0 +1,46 @@
+.resizer {
+  --handle-size: 1px;
+  --handle-size-hover: 2px;
+
+  position: relative;
+
+  & button {
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  &__handle {
+    top: 0;
+    height: 100%;
+    position: absolute;
+    cursor: ew-resize;
+    z-index: 100;
+    right: 0;
+
+    &::before {
+      top: 0;
+      left: 50%;
+      bottom: 0;
+      width: var(--handle-size);
+      content: "";
+      z-index: 5;
+      display: block;
+      background: var(--color-neutral-border);
+      position: absolute;
+    }
+
+    &_quickview::before {
+      left: 0;
+    }
+
+    &:hover::before,
+    &_resizing::before {
+      top: 0;
+      bottom: 0;
+      width: var(--handle-size-hover);
+      background-color: var(--color-primary-border-subtle);
+    }
+  }
+}

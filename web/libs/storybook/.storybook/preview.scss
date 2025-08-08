@@ -1,0 +1,13 @@
+@import '../../ui/src/styles';
+
+body {
+  height: 100vh;
+  color: var(--color-neutral-content);
+  background-color: var(--color-neutral-background);
+}
+
+#storybook-root {
+  height: 100%;
+  color: var(--color-neutral-content);
+  background-color: var(--color-neutral-background);
+}

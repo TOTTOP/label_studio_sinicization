@@ -1,0 +1,19 @@
+title: 带有边界框的医学图像分类
+type: community
+group: 计算机视觉
+image: /static/templates/medical-image-classification.png
+details: <h1>对医学图像进行分类并绘制区域</h1>
+config: |
+  <View>
+    <Image name="image" value="$image"/>
+
+    <RectangleLabels name="label" toName="image">
+      <Label value="Tumor" background="green"/>
+    </RectangleLabels>
+
+    <Choices name="classification" toName="image">
+      <Choice value="Benign"/>
+      <Choice value="Malignant"/>
+      <Choice value="Normal"/>
+    </Choices>
+  </View>
