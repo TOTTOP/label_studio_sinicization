@@ -1,4 +1,4 @@
-import { destroy, flow, types } from "mobx-state-tree";
+import { destroy, flow, types, isAlive } from "mobx-state-tree";
 import { Modal } from "../components/Common/Modal/Modal";
 import { FF_DEV_2887, FF_LOPS_E_3, FF_REGION_VISIBILITY_FROM_URL, isFF } from "../utils/feature-flags";
 import { History } from "../utils/history";
@@ -106,6 +106,10 @@ export const AppStore = types
     },
 
     get target() {
+      // 在执行任何操作前，先检查 AppStore 实例自身是否还存活
+      if (!isAlive(self)) {
+        return null; // 或者一个其他安全的默认值
+      }
       return self.viewsStore.selected?.target ?? "tasks";
     },
 

@@ -8,7 +8,7 @@ type SaveAndLeaveButtonProps = {
   onSave: () => void;
   text?: string;
 };
-const SaveAndLeaveButton = ({ onSave, text = "Save and Leave" }: SaveAndLeaveButtonProps) => {
+const SaveAndLeaveButton = ({ onSave, text = "保存并离开" }: SaveAndLeaveButtonProps) => {
   const [saving, setSaving] = useState(false);
   const saveHandler = useCallback(async () => {
     setSaving(true);
@@ -64,7 +64,7 @@ export const unsavedChangesModal = ({
           size="compact"
           autoFocus
         >
-          {cancelText ?? "Cancel"}
+          {cancelText ?? "取消"}
         </Button>
 
         {onDiscard && (
@@ -76,7 +76,7 @@ export const unsavedChangesModal = ({
             size="compact"
             look="danger"
           >
-            {discardText ?? "Discard and leave"}
+            {discardText ?? "放弃并离开"}
           </Button>
         )}
 

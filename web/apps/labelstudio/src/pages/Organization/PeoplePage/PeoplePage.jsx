@@ -100,9 +100,9 @@ export const PeoplePage = () => {
           <Space />
 
           <Space>
-            {isFF(FF_AUTH_TOKENS) && <Button onClick={showApiTokenSettingsModal}>API Tokens Settings</Button>}
+            {isFF(FF_AUTH_TOKENS) && <Button onClick={showApiTokenSettingsModal}>API Tokens配置</Button>}
             <Button icon={<IconPlus />} primary onClick={() => setInvitationOpen(true)}>
-              Add People
+              添加成员
             </Button>
           </Space>
         </Space>

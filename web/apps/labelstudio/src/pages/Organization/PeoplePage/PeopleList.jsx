@@ -69,10 +69,10 @@ export const PeopleList = ({ onSelect, selectedUser, defaultSelected }) => {
                   Email
                 </Elem>
                 <Elem name="column" mix="name">
-                  Name
+                  姓名
                 </Elem>
                 <Elem name="column" mix="last-activity">
-                  Last Activity
+                  最近活动
                 </Elem>
               </Elem>
               <Elem name="body">

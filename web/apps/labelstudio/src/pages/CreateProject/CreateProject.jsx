@@ -33,7 +33,7 @@ const ProjectName = ({ name, setName, onSaveName, onSubmit, error, description, 
         <Input
           name="name"
           id="project_name"
-          value={name}
+          value={name || ""}
           onChange={(e) => setName(e.target.value)}
           onBlur={onSaveName}
           className="project-title w-full"

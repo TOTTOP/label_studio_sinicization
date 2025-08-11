@@ -1,4 +1,4 @@
-import { getRoot, getSnapshot, types } from "mobx-state-tree";
+import { getRoot, getSnapshot, types, isAlive } from "mobx-state-tree";
 import {
   IconCommentCheck,
   IconCommentRed,
@@ -78,6 +78,10 @@ export const TabColumn = types
   })
   .views((self) => ({
     get hidden() {
+      // 检查self是否存活
+      if (!isAlive(self)) {
+        return true;
+      }
       if (self.children) {
         return all(self.children, (c) => c.hidden);
       }
