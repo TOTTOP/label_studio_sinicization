@@ -6,6 +6,10 @@ import "./Config.scss";
 import { IconInfo } from "@humansignal/icons";
 
 const listClass = cn("templates-list");
+// 需要隐藏的模板title
+const hideTitle = ['监督语言模型微调'];
+// 需要隐藏的模板group
+const hideGroup = ['对话式AI', '排序与评分','结构化数据解析', '时间序列分析', '生成式AI'];
 
 const Arrow = () => (
   <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,6 +21,8 @@ const Arrow = () => (
 const TemplatesInGroup = ({ templates, group, onSelectRecipe }) => {
   const picked = templates
     .filter((recipe) => recipe.group === group)
+    // 过滤hideTitle中列举的模板
+    .filter((recipe) => !hideTitle.includes(recipe.title))
     // templates without `order` go to the end of the list
     .sort((a, b) => (a.order ?? Number.POSITIVE_INFINITY) - (b.order ?? Number.POSITIVE_INFINITY));
 
@@ -50,13 +56,16 @@ export const TemplatesList = ({ selectedGroup, selectedRecipe, onCustomTemplate,
     fetchData();
   }, []);
 
-  const selected = selectedGroup || groups[0];
+  // const selected = selectedGroup || groups[0];
+  const visibleGroups = groups.filter(group => !hideGroup.includes(group));
+  const selected = selectedGroup || visibleGroups[0];
 
   return (
     <div className={listClass}>
       <aside className={listClass.elem("sidebar")}>
         <ul>
-          {groups.map((group) => (
+          {/* groups */}
+          {visibleGroups.map((group) => (
             <li
               key={group}
               onClick={() => onSelectGroup(group)}

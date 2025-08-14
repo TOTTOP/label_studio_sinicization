@@ -18,11 +18,11 @@ export const MenuLayout = ({ children, ...routeProps }) => {
         GeneralSettings,
         LabelingSettings,
         AnnotationSettings,
-        MachineLearningSettings,
-        PredictionsSettings,
-        isAllowCloudStorage && StorageSettings,
-        WebhookPage,
-        DangerZone,
+        // MachineLearningSettings,
+        // PredictionsSettings,
+        // isAllowCloudStorage && StorageSettings,
+        // WebhookPage,
+        // DangerZone, // 危险操作
       ].filter(Boolean)}
       path={routeProps.match.url}
       children={children}
